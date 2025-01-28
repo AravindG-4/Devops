@@ -21,7 +21,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: html-file
-          path: ./index.html  # Adjust the path if your HTML file is located elsewhere
+          path: |
+            ./index.html
+            ./style.css
+            ./img/*
 
   # Deploy Job
   deploy:
@@ -32,10 +35,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: html-file
-          path: ./html
+          path: ./website
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.KEY }}  # Use the default GitHub token for authentication
-          publish_dir: ./html
+          publish_dir: ./website

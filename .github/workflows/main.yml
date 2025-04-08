@@ -24,6 +24,7 @@ jobs:
           path: |
             ./index.html
             ./style.css
+            ./Dockerfile
             ./img/*
 
   # Deploy Job
